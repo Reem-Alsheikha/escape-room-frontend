@@ -1,0 +1,130 @@
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+  background-image: url('/assets/background.jpg'); /* Hintergrundbild */
+  background-size: cover; /* Bild füllt den gesamten Container */
+  background-position: center; 
+  height: 100vh; 
+}
+
+.text-container {
+  position: absolute;
+  top: 50%; /* Positioniert den Text in der Mitte des Containers */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Zentriert den Text exakt */
+  text-align: center;
+}
+
+.large-text {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.small-text {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.book-button {
+  font-size: 1.5em;
+  padding: 10px 20px;
+  background-color: #f44336;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.book-button:hover {
+  background-color: #d32f2f;
+}
+
+@media (max-width: 600px) {
+  .large-text {
+    font-size: 2em;
+  }
+
+  .small-text {
+    font-size: 1em;
+  }
+
+  .book-button {
+    font-size: 1.2em;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  box-sizing: border-box; /* Stellt sicher, dass das Padding mit in die Breite einbezogen wird */
+  z-index: 1000; /* Stellt sicher, dass sie über anderen Elementen liegt */
+}
+
+.logo {
+  height: 80px;
+}
+
+.menu-icon {
+  font-size: 40px;
+  cursor: pointer;
+  color: white;
+  margin-right: 20px; 
+}
+
+/* Anpassung für kleinere Bildschirme */
+@media (max-width: 600px) {
+  .logo {
+    height: 60px;
+  }
+
+  .menu-icon {
+    font-size: 30px;
+    margin-right: 15px; 
+  }
+}
+
+.booking-section {
+  height: 100vh; /* Ganze Bildschirmhöhe */
+  background-color: black;
+  color: white;
+  padding: 50px;
+  text-align: center;
+}
+
+.room-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.room {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.room img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.room:hover {
+  transform: scale(1.1);
+}
+
+.room p {
+  margin-top: 10px;
+  color: white;
+  font-size: 1.2em;
+}
