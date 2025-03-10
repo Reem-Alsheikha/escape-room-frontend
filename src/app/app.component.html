@@ -13,18 +13,53 @@
   </div>
 </div>
 
-<!-- Zielabschnitt für Scroll -->
-<div id="booking-section" class="booking-section">
-  <h2>ESCAPE ROOMS</h2>
-  <p>Choose your room.</p>
+<div *ngIf="showRooms">
+  <div id="booking-section" class="booking-section">
+    <h2>ESCAPE ROOMS</h2>
+    <p>Choose your room.</p>
 
-  <div class="room-gallery">
-    <div class="room" *ngFor="let room of escapeRooms" (click)="openRoomDetails(room)">
-      <img [src]="room.image" [alt]="room.name">
-      <p>{{ room.name }}</p>
+    <div class="room-gallery">
+      <div class="room" *ngFor="let room of escapeRooms" (click)="openRoomDetails(room)">
+        <img [src]="room.image" [alt]="room.name">
+        <p>{{ room.name }}</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<!-- Escape Room Detailseite wird separat geladen -->
+<router-outlet></router-outlet>
+
+<!-- Informationen über die Escape Rooms und den Besitzer -->
+<div class="escape-room-info">
+  <h2>About Our Escape Rooms</h2>
+  <p>Experience thrilling and immersive escape room adventures! Solve mysteries, find clues, and challenge yourself.</p>
+
+  <div class="owner-info">
+    <img src="assets/reem.jpg" alt="Reem Alsheikha" class="owner-image">
+    <div class="owner-details">
+      <h3>Reem Alsheikha</h3>
+      <p>Owner & Founder</p>
+      <p>📞 Phone: +49 176 43600986</p>
     </div>
   </div>
 </div>
+
+<!-- Social Media Icons -->
+<div class="social-media">
+  <a href="https://www.instagram.com/reem_alsheikha/" target="_blank" class="instagram">
+    <span class="material-icons">photo_camera</span>
+  </a>
+  <a href="https://www.facebook.com/reem.alshekha.58/" target="_blank" class="facebook">
+    <span class="material-icons">facebook</span>
+  </a>
+</div>
+
+
+
+  
+  
 
 
 

@@ -1,11 +1,246 @@
+ /* Navbar fixiert */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
+.logo {
+  height: 60px;
+}
+
+.menu-icon {
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Hintergrund für die gesamte Seite schwarz setzen */
+body, html {
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container für das Karussell */
+.carousel {
+  background-color: black; /* Hintergrund schwarz */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+}
+
+/* Bilder im Karussell */
+.carousel-image {
+  width: 100%;
+  max-width: 600px; /* Begrenzung, damit die Bilder nicht zu groß werden */
+  max-height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* Buttons für das Karussell */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.carousel-btn.left {
+  left: 10px;
+}
+
+.carousel-btn.right {
+  right: 10px;
+}
+
+
+/* Raumdetails */
 .room-details {
-    text-align: center;
-    color: white;
-    background-color: black;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.info-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  width: 100px;
+}
+
+.icon-box span {
+  font-size: 40px;
+  color: white;
+}
+
+.icon-box p {
+  color: red;
+  font-size: 1.2em;
+  margin-top: 5px;
+}
+
+/* Beschreibung */
+.description {
+  font-size: 1.2em;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Book Now Button */
+.book-now {
+  font-size: 1.5em;
+  padding: 15px 30px;
+  border: 2px solid red;
+  color: red;
+  background-color: black;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: all 0.3s;
+}
+
+.book-now:hover {
+  background-color: red;
+  color: white;
+}
+
+
+/* Social Media Icons (Instagram & Facebook) übereinander */
+.social-media {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column; /* Ändert die Anordnung auf vertikal */
+  gap: 10px; /* Abstand zwischen den Icons */
+}
+
+.social-media a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  padding: 15px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-media a:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
+}
+
+.instagram span,
+.facebook span {
+  font-size: 2em;
+  color: white;
+  transition: color 0.3s;
+}
+
+.instagram:hover span {
+  color: red;
+}
+
+.facebook:hover span {
+  color: blue;
+}
+
+
+/* Mobile Optimierung */
+@media (max-width: 768px) {
+  .carousel {
+    height: 40vh;
   }
-  
+
+  .carousel-btn {
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  .info-section {
+    gap: 15px;
+  }
+
+  .icon-box {
+    width: 80px;
+  }
+
+  .icon-box span {
+    font-size: 30px;
+  }
+
+  .icon-box p {
+    font-size: 1em;
+  }
+
+  .book-now {
+    font-size: 1.2em;
+    padding: 10px 20px;
+  }
+
+  .instagram a {
+    font-size: 30px;
+  }
+}
+
+.back-button {
+  font-size: 1em;
+  margin-top: 20px; /* Abstand nach oben */
+  padding: 10px 15px;
+  color: white;
+  background-color: black;
+  border: 2px solid red;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.back-button:hover {
+  background-color: red;
+  color: white;
+}
+cd 
+
+.room-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: black;
+  color: white;
+}

@@ -1,38 +1,45 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule, NavigationEnd } from '@angular/router'; 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule], 
+  imports: [CommonModule, RouterModule],  
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 
-
 export class AppComponent {
 
-  scrollToBooking() {
-    const bookingSection = document.getElementById("booking-section");
-    if (bookingSection) {
-      bookingSection.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-  
-[x: string]: any;
-  escapeRooms = [
-    { name: 'Maniac', image: 'assets/maniac.jpg' },
-    { name: 'Psycho', image: 'assets/psycho.jpg' },
-    { name: 'Alice in Wonderland', image: 'assets/alice.jpg' },
-    { name: 'Money Heist', image: 'assets/money-heist.jpg' },
-    { name: 'Squid Game', image: 'assets/squid-game.jpg' }
+    escapeRooms = [
+    { id: 'maniac', name: 'Maniac', image: 'assets/maniac.jpg' },
+    { id: 'psycho', name: 'Psycho', image: 'assets/psycho.jpg' },
+    { id: 'alice-in-wonderland', name: 'Alice in Wonderland', image: 'assets/alice.jpg' },
+    { id: 'money-heist', name: 'Money Heist', image: 'assets/money-heist.jpg' },
+    { id: 'squid-game', name: 'Squid Game', image: 'assets/squid-game.jpg' }
   ];
 
-  constructor(private router: Router) {}
+  showRooms = true; // Escape Rooms nur auf der Startseite anzeigen
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.showRooms = event.url === '/';
+      }
+    });
+  }
 
   openRoomDetails(room: any) {
-    this.router.navigate(['/room', room.name.toLowerCase().replace(/\s/g, '-')]);
+    this.router.navigate(['/room', room.id]);
+  }
+  
+  scrollToBooking() {
+    setTimeout(() => {
+      const bookingSection = document.getElementById("booking-section");
+      if (bookingSection) {
+        bookingSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Kleiner Timeout für sicheres Scrollen nach Navigation
   }
 }
-

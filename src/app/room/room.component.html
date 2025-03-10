@@ -1,5 +1,46 @@
-<div class="room-details">
-    <h1>{{ roomName | titlecase }}</h1>
-    <p>More information about {{ roomName }} escape room will be added here.</p>
+<div id="room-section" style="background-color: black; padding: 20px;">
+  <!-- Bilder-Karussell -->
+  <div class="carousel">
+    <button class="carousel-btn left" (click)="prevImage()">&#10094;</button>
+    <img [src]="currentImage" class="carousel-image">
+    <button class="carousel-btn right" (click)="nextImage()">&#10095;</button>
   </div>
-   
+
+  <!-- Raumdetails -->
+  <div class="room-details">
+    <div class="info-section">
+      <div class="icon-box">
+        <span class="material-icons">group</span>
+        <p>{{ roomInfo.participants }}</p>
+      </div>
+      <div class="icon-box">
+        <span class="material-icons">star</span>
+        <p>{{ roomInfo.difficulty }}</p>
+      </div>
+      <div class="icon-box">
+        <span class="material-icons">timer</span>
+        <p>{{ roomInfo.time }} min</p>
+      </div>
+      <div class="icon-box">
+        <span class="material-icons">category</span>
+        <p>{{ roomInfo.theme }}</p>
+      </div>
+    </div>
+
+    <p class="description">{{ roomInfo.description }}</p>
+    <button class="book-now">Book Now</button>
+
+    <!-- Zurück-Button am Ende -->
+    <button class="back-button" (click)="goBack()">← Back to Escape Rooms</button>
+  </div>
+</div>
+
+<!-- Social Media Icons -->
+<div class="social-media">
+  <a href="https://www.instagram.com/reem_alsheikha/" target="_blank" class="instagram">
+    <span class="material-icons">photo_camera</span>
+  </a>
+  <a href="https://www.facebook.com/" target="_blank" class="facebook">
+    <span class="material-icons">facebook</span>
+  </a>
+</div>
