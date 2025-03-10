@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { BookingFormComponent } from '../booking-form/booking-form.component';
 
 @Component({
   selector: 'app-room',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, BookingFormComponent],
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.css']
 })
@@ -14,6 +16,7 @@ export class RoomComponent {
   roomInfo: any = {};
   images: string[] = [];
   currentImageIndex = 0;
+  showBookingForm: boolean = false; // Steuert die Sichtbarkeit des Buchungsformulars
 
   roomsData: any = {
     'maniac': {
@@ -58,5 +61,20 @@ export class RoomComponent {
 
   goBack() {
     this.router.navigate(['/']); // Zur Hauptseite zurück
+  }
+
+  openBookingForm() {
+    this.showBookingForm = true; // Zeigt das Buchungsformular an
+  }
+
+  handleFormSubmit(formData: any) {
+    console.log('Buchungsdaten:', formData);
+    // Hier kannst du die Buchungsdaten weiterverarbeiten, z.B. an einen Server senden.
+    this.showBookingForm = false;
+    alert('Buchung erfolgreich!');
+  }
+
+  handleFormCancel() {
+    this.showBookingForm = false; // Verbirgt das Buchungsformular
   }
 }

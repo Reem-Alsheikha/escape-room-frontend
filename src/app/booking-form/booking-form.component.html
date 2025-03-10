@@ -1,0 +1,29 @@
+<div class="booking-form">
+  <h2>Buchungsformular</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="bookingData.name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-Mail:</label>
+      <input type="email" id="email" [(ngModel)]="bookingData.email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Telefonnummer:</label>
+      <input type="tel" id="phone" [(ngModel)]="bookingData.phone" name="phone" required>
+    </div>
+
+    <div class="form-group">
+      <label for="participants">Anzahl der Teilnehmer:</label>
+      <input type="number" id="participants" [(ngModel)]="bookingData.participants" name="participants" min="1" required>
+    </div>
+
+    <div class="form-buttons">
+      <button type="submit">Senden</button>
+      <button type="button" (click)="onCancel()">Abbrechen</button>
+    </div>
+  </form>
+</div>
