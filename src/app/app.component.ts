@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule, NavigationEnd } from '@angular/router'; 
+import { RoomService } from './services/room.service';
 
 @Component({
   selector: 'app-root',
@@ -36,13 +37,22 @@ export class AppComponent {
 
   showRooms = true; // Escape Rooms nur auf der Startseite anzeigen
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private roomService: RoomService) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.showRooms = event.url === '/';
       }
     });
   }
+
+  rooms: any[] = [];
+
+ngOnInit() {
+  this.roomService.getRooms().subscribe((data: any) => {
+    this.rooms = data;
+    console.log("Räume geladen:", this.rooms);
+  });
+}
 
   openRoomDetails(room: any) {
     this.router.navigate(['/room', room.id]);
