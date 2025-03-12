@@ -1,12 +1,28 @@
+/* Hintergrundbild mit sanftem Blur-Übergang */
 .container {
   position: relative;
   text-align: center;
   color: white;
   background-image: url('/assets/background.jpg'); /* Hintergrundbild */
-  background-size: cover; /* Bild füllt den gesamten Container */
-  background-position: center; 
-  height: 100vh; 
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  z-index: 1;
 }
+
+/* Weicher Blur-Übergang */
+.container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30vh; /* Höhe des Übergangs */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, black 100%);
+  filter: blur(8px); /* Blur-Effekt am unteren Rand */
+  z-index: 2;
+}
+
 
 .text-container {
   position: absolute;
@@ -72,11 +88,46 @@
 }
 
 .menu-icon {
-  font-size: 40px;
+  font-size: 30px;
   cursor: pointer;
   color: white;
   margin-right: 20px; 
+  z-index: 1000;
 }
+
+/* Dropdown-Menü*/
+.menu {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: black;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+  padding: 10px;
+  z-index: 1000;
+  
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  padding: 12px;
+  cursor: pointer;
+  color: white;
+  transition: background 0.3s;
+  text-align: center;
+}
+
+.menu li:hover {
+  background: red;
+  border-radius: 5px;
+}
+
+
 
 /* Anpassung für kleinere Bildschirme */
 @media (max-width: 600px) {
@@ -90,82 +141,149 @@
   }
 }
 
-.booking-section {
-  height: 100vh; /* Ganze Bildschirmhöhe */
+/* Escape Rooms Sektion */
+#booking-section {
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 80px 20px; /* Mehr Abstand oben und unten */
+}
+
+#booking-section h2 {
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#booking-section p {
+  font-size: 1.5em;
+  margin-bottom: 40px;
+}
+
+/* Escape Rooms Galerie */
+.room-gallery {
+  display: flex;
+  justify-content: center; /* Räume in die Mitte bringen */
+  flex-wrap: wrap;
+  gap: 30px; /* Abstand zwischen den Bildern */
+  align-items: flex-start; /* Alle Bilder oben ausrichten */
+}
+
+/* Jedes Raum-Element */
+.room {
+  text-align: center;
+  width: 220px; /* Einheitliche Breite für alle Räume */
+}
+
+/* Bilder-Styling */
+.room img {
+  width: 100%;
+  height: 300px; /* Einheitliche Höhe */
+  object-fit: cover; /* Bilder gleichmäßig zuschneiden */
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-Effekt */
+.room img:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
+}
+
+/* Raum-Titel */
+.room p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+
+
+/* Escape Room Info */
+.escape-room-info {
+  text-align: center;
   background-color: black;
   color: white;
   padding: 50px;
+  font-size: 1.5em;
+}
+
+/* Founder Section */
+.about-container {
   text-align: center;
-}
-
-.room-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.room {
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.room img {
-  width: 200px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.room:hover {
-  transform: scale(1.1);
-}
-
-.room p {
-  margin-top: 10px;
+  background-color: #111;
   color: white;
-  font-size: 1.2em;
+  padding: 50px 20px;
+  margin-bottom: 0;
 }
 
-/* Info-Bereich über den Escape Room */
-.escape-room-info {
-  background-color: black;
-  color: white;
-  text-align: center;
-  padding: 30px;
-  margin-top: 50px;
-}
-
-.escape-room-info h2 {
-  color: red;
-  margin-bottom: 15px;
-}
-
-/* Besitzer-Info */
-.owner-info {
+.owner-section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
 }
 
 .owner-image {
-  width: 80px; /* Kleines Bild */
-  height: 80px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  border: 2px solid red;
+  border: 4px solid red;
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.5);
 }
 
-.owner-details h3 {
-  margin: 0;
-  color: white;
+.owner-details h2 {
+  color: red;
+  font-size: 2em;
+  margin-bottom: 5px;
 }
 
 .owner-details p {
-  margin: 2px 0;
-  font-size: 1em;
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+/* Social Media Section */
+.social-media {
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 30px;
+  margin-top: -10px;
+}
+
+.social-media h2{
+  font-size: 1.8em;
+  margin-bottom: 15px;
   color: white;
 }
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+}
+

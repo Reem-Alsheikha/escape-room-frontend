@@ -12,6 +12,20 @@ import { Router, RouterModule, NavigationEnd } from '@angular/router';
 
 export class AppComponent {
 
+  menuOpen = false; // Standard: Menü geschlossen
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen; // Öffnet/schließt Menü
+  }
+
+  scrollToSection(sectionId: string) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" }); // Sanftes Scrollen
+      this.menuOpen = false; // Menü nach Klick schließen
+    }
+  }
+
     escapeRooms = [
     { id: 'maniac', name: 'Maniac', image: 'assets/maniac.jpg' },
     { id: 'psycho', name: 'Psycho', image: 'assets/psycho.jpg' },
@@ -42,4 +56,8 @@ export class AppComponent {
       }
     }, 100); // Kleiner Timeout für sicheres Scrollen nach Navigation
   }
+
+
+
+  
 }

@@ -1,8 +1,16 @@
 <div class="navbar">
   <img src="/assets/logo.png" alt="Escape Room Logo" class="logo">
-  <div class="menu-icon">
+  <div class="menu-icon" (click)="toggleMenu()">
     <span>&#9776;</span>
   </div>
+</div>
+
+<!-- Dropdown-Menü -->
+<div class="menu" *ngIf="menuOpen">
+  <ul>
+    <li (click)="scrollToSection('booking-section')">Escape Rooms</li>
+    <li (click)="scrollToSection('about')">About Us</li>
+  </ul>
 </div>
 
 <div class="container">
@@ -31,32 +39,40 @@
 <!-- Escape Room Detailseite wird separat geladen -->
 <router-outlet></router-outlet>
 
-<!-- Informationen über die Escape Rooms und den Besitzer -->
-<div class="escape-room-info" *ngIf="!showRooms">
-  <h2>About Our Escape Rooms</h2>
+<!-- Escape Rooms Bereich -->
+<div id="rooms"class="escape-room-info">
+  <h1>Welcome to Our Escape Rooms</h1>
   <p>Experience thrilling and immersive escape room adventures! Solve mysteries, find clues, and challenge yourself.</p>
 </div>
 
-  <div class="owner-info">
+<!-- About Us Bereich -->
+<div id="about" class="about-container">
+  <h1>About the Founder</h1>
+  <div class="owner-section">
     <img src="assets/reem.jpg" alt="Reem Alsheikha" class="owner-image">
     <div class="owner-details">
-      <h3>Reem Alsheikha</h3>
-      <p>Owner & Founder</p>
+      <h2>Reem Alsheikha</h2>
+      <p>Founder & CEO of Escape Room</p>
       <p>📞 Phone: +49 176 43600986</p>
+      <p>📧 Email: reemalsheikha5.gmail.com</p>
     </div>
   </div>
-
-
-
-<!-- Social Media Icons -->
-<div class="social-media">
-  <a href="https://www.instagram.com/reem_alsheikha/" target="_blank" class="instagram">
-    <span class="material-icons">photo_camera</span>
-  </a>
-  <a href="https://www.facebook.com/reem.alshekha.58/" target="_blank" class="facebook">
-    <span class="material-icons">facebook</span>
-  </a>
 </div>
+
+
+<!-- Social Media Section -->
+<div class="social-media">
+  <h2>Follow Us</h2>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/reem_alsheikha/" target="_blank" class="instagram">
+      <img src="assets/instagram.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/reem.alshekha.58/" target="_blank" class="facebook">
+      <img src="assets/facebook.png" alt="Facebook">
+    </a>
+  </div>
+</div>
+
 
 
 
