@@ -1,26 +1,24 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { API_URL } from "../app.config";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoomService {
-  private apiUrl = 'http://localhost:5000/api/rooms'; // Backend-URL
+  private apiUrl = `${API_URL}/rooms`;
 
   constructor(private http: HttpClient) {}
 
-  //  Alle Escape Rooms abrufen (GET)
   getRooms(): Observable<any> {
-    return this.http.get(this.apiUrl);
+    return this.http.get(`${this.apiUrl}`);
   }
 
-  //  Neuen Escape Room erstellen (POST)
-  createRoom(room: any): Observable<any> {
-    return this.http.post(this.apiUrl, room);
+  createRoom(roomData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}`, roomData);
   }
 
-  //  Escape Room löschen (DELETE)
   deleteRoom(id: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
