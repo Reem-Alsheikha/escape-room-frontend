@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "material-icons": "^1.13.14"
+  },
+  "devDependencies": {
+    "@angular/cli": "^19.2.3"
   }
 }
