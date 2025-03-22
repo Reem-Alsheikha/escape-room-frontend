@@ -1,0 +1,31 @@
+<div class="my-bookings">
+  <h2>Meine Buchungen</h2>
+
+  <div *ngIf="bookings.length > 0; else noBookings">
+    <ul>
+      <li *ngFor="let booking of bookings">
+        <p><strong>Name:</strong> {{ booking.customerId?.name }}</p>
+        <p><strong>E-Mail:</strong> {{ booking.customerId?.email }}</p>
+        <p><strong>Telefon:</strong> {{ booking.customerId?.phone }}</p>
+        <p><strong>Raum:</strong> {{ booking.roomId?.name }}</p>
+        <p><strong>Teilnehmer:</strong> {{ booking.participants || 'Keine Angabe' }}</p>
+        <p><strong>Escape Room Termin:</strong> {{ booking.date | date:'dd.MM.yyyy' }} um {{ booking.time }}</p>
+        <p><small>Buchung gemacht am: {{ booking.createdAt | date:'dd.MM.yyyy HH:mm' }}</small></p>
+
+
+        
+        <!--  Delete-Button hinzufügen -->
+        <button class="delete-booking-btn" (click)="deleteBooking(booking._id)">Delete Booking</button>
+        <hr>
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #noBookings>
+    <p style="color: red;">⚠️ Keine Buchungen gefunden.</p>
+  </ng-template>
+
+  <!--  Back to Home Button -->
+  <button class="back-home-button" (click)="goBack()">Back to Home</button>
+</div>
+ 

@@ -244,3 +244,35 @@ cd
   background-color: black;
   color: white;
 }
+
+.my-bookings-btn {
+  background-color: black; 
+  color: red;
+  border: 2px solid red;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s;
+  display: block; /* Button nimmt gesamte Breite ein */
+  margin: 20px auto; /* Zentriert den Button */
+  text-align: center;
+  width: 200px;
+}
+
+.my-bookings-btn:hover {
+  background-color: red;
+  color: white;
+  transform: scale(1.05);
+}
+
+.my-bookings-btn:active {
+  background-color: red;
+  transform: scale(0.98);
+}
+
+
+
+

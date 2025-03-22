@@ -1,60 +1,122 @@
-# Testen, ob das automatische Deployment funktioniert
-# EscapeRoom
+# Escape-room-frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+Diese Webanwendung simuliert eine Escape Room Buchungsplattform. Nutzer können sich verfügbare Escape Rooms ansehen, Buchungen erstellen .
 
-## Development server
+# Technologie-Stack
+- Angular (19.2.1)
+- Angular Material & Bootstrap 5.3.3 für UI-Design
+- REST-API Kommunikation mit dem Backend
+- Responsives Design für Desktop & Mobile
 
-To start a local development server, run:
+# Installation & Setup
 
-```bash
+# Voraussetzungen
+- Node.js (mind. v18.0.0)
+- Angular CLI (mind. v19.2.1)
+- Datenbank (MongoDB)
+
+# Schritte zur Installation
+- Repository klonen :
+https://gitlab.rz.htw-berlin.de/s0591458/escape-room.git
+cd escape-room
+
+https://github.com/Reem-Alsheikha/escape-room-frontend.git
+cd escape-room
+
+- Abhängigkeiten installieren :
+npm install
+
+- Entwicklungsserver starten :
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Dann die Anwendung unter 'http://localhost:4200/' im Browser öffnen.
 
-## Code scaffolding
+# Projektstruktor
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+escape-room-frontend/
+│── src/
+│   ├── app/
+│   │   ├── components/
+│   │   ├── services/
+│   │   ├── app.component.ts
+│   │   ├── app.routes.ts
+│   ├── assets/
+│   ├── styles.css
+│   ├── index.html
+│── angular.json
+│── package.json
+│── tsconfig.json
+│── README.md
 
-```bash
-ng generate component component-name
-```
+# Verwendete Bibliotheken
+| Paket               | Version | Beschreibung |
+|---------------------|---------|-----------------|
+| `@angular/core`     | 19.2.2  | Haupt-Framework |
+| `@angular/material` | 19.2.3  | UI-Komponenten  |
+| `bootstrap`         | 5.3.3   | CSS-Framework   |
+| `rxjs`              | 7.8.1   | Reaktive Programmierung |
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+# Funktionalitäten
 
-## Building
+- Escape Rooms anzeigen
+- Buchungen erstellen
+- Rätsel und Themen anzeigen
+- Responsive UI mit Bootstrap 
+- Datenbank-CRUD-Operationen
 
-To build the project run:
 
-```bash
-ng build
-```
+# Deployment
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- Netlify
+  npm run build
+  netlify deploy
 
-## Running unit tests
+# Features 
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- Escape Rooms anzeigen
+- Informationen über Escape Rooms ansehen
+- Buchung erstellen , ansehen, löschen
+- Support Kontaktieren
 
-```bash
-ng test
-```
+# Weitere Features (zukünftige Erweiterungen)
 
-## Running end-to-end tests
+- Login System für (Kunden und Mitarbeiter)
+- Buchungen verwalten (Mitarbeiter)
+- Bewertung für Escape Rooms 
+- Mehrsprachigkeit
 
-For end-to-end (e2e) testing, run:
+## Screenshots der Anwendung
 
-```bash
-ng e2e
-```
+### Startseite  
+![Startseite](src/assets/screenshots/home.jpg)
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Escape Rooms Seite
+![Escape Rooms Seite](src/assets/screenshots/escapeRooms.jpg)
 
-## Additional Resources
+### About Us Seite
+![About Us Seite](src/assets/screenshots/aboutUs.jpg)
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Escape Room Details
+![Escape Room Details](src/assets/screenshots/escapeRoomDetails.jpg)
+
+### Buchungsformular  
+![Buchungsformular](src/assets/screenshots/bookingForm.jpg)
+
+### Mein Buchungen Button
+![Mein Buchungen Button](src/assets/screenshots/myBookingButton.jpg)
+
+
+### Meine Buchungen  
+![Meine Buchungen](src/assets/screenshots/myBookings.jpg)
+
+
+
+# Kontakt und Support
+
+Falls Sie Fragen haben, können Sie mich unter folgender E-Mail erreichen:
+
+ E-Mail: reemalsheikha5@gmail.com
+ GitLab Repository : Escape-room
+
+

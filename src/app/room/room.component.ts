@@ -17,6 +17,8 @@ export class RoomComponent {
   images: string[] = [];
   currentImageIndex = 0;
   showBookingForm: boolean = false; // Steuert die Sichtbarkeit des Buchungsformulars
+  hasBookings : boolean = false; // Standardmäßig auf "false", bis eine Buchung erstellt wird.
+
 
   roomsData: any = {
     'maniac': {
@@ -28,6 +30,7 @@ export class RoomComponent {
       theme: 'Horror',
       description: 'Can you survive the Maniac’s twisted games?'
     },
+
     'money-heist': {
       name: 'Money Heist',
       images: ['/assets/moneyheist1.jpg', '/assets/moneyheist2.jpg', '/assets/moneyheist3.jpg'],
@@ -36,7 +39,37 @@ export class RoomComponent {
       time: '70',
       theme: 'Action',
       description: 'Break into the bank and escape before the police arrive!'
-    }
+    },
+
+    'alice': {
+  name: 'Alice in Wonderland',
+  images: ['/assets/alice1.jpg', '/assets/alice2.jpg', '/assets/alice3.jpg'],
+  participants: '2-5',
+  difficulty: 'Easy',
+  time: '60',
+  theme: 'Fantasy',
+  description: 'Follow Alice into the magical world of Wonderland and solve the mysteries to find your way back home!'
+},
+
+'psycho': {
+  name: 'Psycho',
+  images: ['/assets/psycho1.jpg', '/assets/psycho2.jpg', '/assets/psycho3.jpg'],
+  participants: '3-6',
+  difficulty: 'Hard',
+  time: '50',
+  theme: 'Horror',
+  description: 'Trapped in the mind of a serial killer, you must uncover his dark secrets before becoming his next victim!'
+},
+
+'squid-game': {
+  name: 'Squid Game',
+  images: ['/assets/squidgame1.jpg', '/assets/squidgame2.jpg', '/assets/squidgame3.jpg'],
+  participants: '4-8',
+  difficulty: 'Medium',
+  time: '60',
+  theme: 'Thriller',
+  description: 'Survive the deadly games, outsmart your opponents, and escape before time runs out. The stakes have never been higher!'
+}
   };
 
   constructor(private route: ActivatedRoute, private router: Router) {
@@ -45,6 +78,12 @@ export class RoomComponent {
       this.roomInfo = this.roomsData[this.roomId] || {};
       this.images = this.roomInfo.images || [];
     });
+  }
+
+  ngOnInit() {
+    // Prüft beim Laden der Seite, ob es Buchungen gibt
+    this.hasBookings = localStorage.getItem('hasBookings') === 'true';
+    console.log(" hasBookings beim Laden der Seite:", this.hasBookings);
   }
 
   get currentImage() {
@@ -59,22 +98,43 @@ export class RoomComponent {
     this.currentImageIndex = (this.currentImageIndex - 1 + this.images.length) % this.images.length;
   }
 
-  goBack() {
-    this.router.navigate(['/']); // Zur Hauptseite zurück
-  }
+
 
   openBookingForm() {
     this.showBookingForm = true; // Zeigt das Buchungsformular an
   }
 
-  handleFormSubmit(formData: any) {
-    console.log('Buchungsdaten:', formData);
-    // Hier kannst du die Buchungsdaten weiterverarbeiten, z.B. an einen Server senden.
-    this.showBookingForm = false;
-    alert('Buchung erfolgreich!');
+  
+  
+  
+  handleFormSubmit(event: any) {
+    console.log("Booking completed:", event);
+    this.hasBookings = true;
+    localStorage.setItem('hasBookings', 'true'); 
+
+    console.log("📌 hasBookings Wert nach der Buchung:", this.hasBookings);
+
+    alert('Booking successful. The button for my booking has been activated');
   }
+
+  
+  
+  
+  
+  
 
   handleFormCancel() {
     this.showBookingForm = false; // Verbirgt das Buchungsformular
   }
+
+  showBookings() {
+    this.router.navigate(['/my-bookings']);
+  }
+
+    // Die Methode goBack() für den Back-Button
+    goBack() {
+      console.log("Zurück zur Escape Room Übersicht");
+      this.router.navigate(['/']); // Zur Startseite oder Escape Room Übersicht navigieren
+    }
+  
 }

@@ -28,10 +28,17 @@
     </div>
 
     <p class="description">{{ roomInfo.description }}</p>
+
     <button class="book-now" (click)="openBookingForm()">Book Now</button>
 
     <!-- Buchungsformular anzeigen, wenn showBookingForm true ist -->
     <app-booking-form *ngIf="showBookingForm" (formSubmitted)="handleFormSubmit($event)" (formCancelled)="handleFormCancel()"></app-booking-form>
+
+    
+<!-- Der "Meine Buchungen"-Button erscheint nur, wenn eine Buchung existiert -->
+<button *ngIf="hasBookings" class="my-bookings-btn" (click)="showBookings()">My Bookings</button>
+
+
 
     <!-- Zurück-Button am Ende -->
     <button class="back-button" (click)="goBack()">← Back to Escape Rooms</button>

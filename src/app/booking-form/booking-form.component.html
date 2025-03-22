@@ -21,9 +21,21 @@
       <input type="number" id="participants" [(ngModel)]="bookingData.participants" name="participants" min="1" required>
     </div>
 
+    <div class="form-group">
+      <label for="date">Datum auswählen:</label>
+      <input type="date" id="date" [(ngModel)]="bookingData.date" name="date" required>
+    </div>
+
+    <div class="form-group">
+      <label for="time">Uhrzeit auswählen:</label>
+      <input type="time" id="time" [(ngModel)]="bookingData.time" name="time" required>
+    </div>
+
     <div class="form-buttons">
       <button type="submit">Senden</button>
       <button type="button" (click)="onCancel()">Abbrechen</button>
     </div>
   </form>
 </div>
+
+
