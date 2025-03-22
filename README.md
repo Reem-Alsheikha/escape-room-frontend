@@ -15,7 +15,7 @@ Diese Webanwendung simuliert eine Escape Room Buchungsplattform. Nutzer können 
 - Angular CLI (mind. v19.2.1)
 - Datenbank (MongoDB)
 
-# Schritte zur Installation
+# Schritte zur Installation :
 - Repository klonen :
 https://gitlab.rz.htw-berlin.de/s0591458/escape-room.git
 cd escape-room
